@@ -1,0 +1,180 @@
+-
+ id: test_addUserData01
+ detail : 正常新增用户组别
+ data:
+  loginName: "unique"
+  userName: "unique"
+  contactPerson: "testContactPerson"
+  email: "test@qq.com"
+  checkEmail: "test@qq.com"
+  serviceNumber: "true"
+  userGroup: "test"
+ assert:
+  isSuccess: "true"  # 判断是否保存成功
+  expected: "新增成功！"  # 预期结果
+  actual: "self.find_element(*(By.XPATH, \"/html/body/div[3]/div[5]/div/div[1]/div\")).get_attribute(\"innerHTML\")"  # 实际结果
+-
+ id: test_addUserData02
+ detail : 登入名称为空
+ data:
+  loginName: ""
+  userName: "unique"
+  contactPerson: "testContactPerson"
+  email: "test@qq.com"
+  checkEmail: "test@qq.com"
+  serviceNumber: "true"
+  userGroup: "test"
+ assert:
+  isSuccess: "false"  # 判断是否保存成功
+  expected: "必需填寫"
+  actual: "self.find_element(*(By.XPATH, \"/html/body/div[4]/div[2]/div/div[2]/form/label[1]/div[2]/div[2]/div/div\")).get_attribute(\"innerHTML\")"
+-
+ id: test_addUserData03
+ detail : 登入名称为重复
+ data:
+  loginName: "same"
+  userName: "unique"
+  contactPerson: "testContactPerson"
+  email: "test@qq.com"
+  checkEmail: "test@qq.com"
+  serviceNumber: "true"
+  userGroup: "test"
+ assert:
+  isSuccess: "false"  # 判断是否保存成功
+  expected: "用户已存在"
+  actual: "self.find_element(*(By.XPATH, \"/html/body/div[3]/div[5]/div/div[1]/div\")).get_attribute(\"innerHTML\")"
+-
+ id: test_addUserData04
+ detail : 用户名称为空
+ data:
+  loginName: "unique"
+  userName: ""
+  contactPerson: "testContactPerson"
+  email: "test@qq.com"
+  checkEmail: "test@qq.com"
+  serviceNumber: "true"
+  userGroup: "test"
+ assert:
+  isSuccess: "false"  # 判断是否保存成功
+  expected: "必需填寫"
+  actual: "self.find_element(*(By.XPATH, \"/html/body/div[4]/div[2]/div/div[2]/form/label[2]/div[2]/div[2]/div/div\")).get_attribute(\"innerHTML\")"
+-
+ id: test_addUserData05
+ detail : 联络人为空
+ data:
+  loginName: "unique"
+  userName: "unique"
+  contactPerson: ""
+  email: "test@qq.com"
+  checkEmail: "test@qq.com"
+  serviceNumber: "true"
+  userGroup: "test"
+ assert:
+  isSuccess: "false"  # 判断是否保存成功
+  expected: "必需填寫"
+  actual: "self.find_element(*(By.XPATH, \"/html/body/div[4]/div[2]/div/div[2]/form/label[3]/div[2]/div[2]/div/div\")).get_attribute(\"innerHTML\")"
+-
+ id: test_addUserData06
+ detail : email为空
+ data:
+  loginName: "unique"
+  userName: "unique"
+  contactPerson: "testContactPerson"
+  email: ""
+  checkEmail: "test@qq.com"
+  serviceNumber: "true"
+  userGroup: "test"
+ assert:
+  isSuccess: "false"  # 判断是否保存成功
+  expected: "必需填寫"
+  actual: "self.find_element(*(By.XPATH, \"/html/body/div[4]/div[2]/div/div[2]/form/label[4]/div[2]/div[2]/div/div\")).get_attribute(\"innerHTML\")"
+-
+ id: test_addUserData07
+ detail : email格式不正确
+ data:
+  loginName: "unique"
+  userName: "unique"
+  contactPerson: "testContactPerson"
+  email: "test"
+  checkEmail: "test@qq.com"
+  serviceNumber: "true"
+  userGroup: "test"
+ assert:
+  isSuccess: "false"  # 判断是否保存成功
+  expected: "電郵格式不正確（範例：xxx@xxx.xxx）"
+  actual: "self.find_element(*(By.XPATH, \"/html/body/div[4]/div[2]/div/div[2]/form/label[4]/div[2]/div[2]/div/div\")).get_attribute(\"innerHTML\")"
+-
+ id: test_addUserData08
+ detail : 再次确认email为空
+ data:
+  loginName: "unique"
+  userName: "testUserName"
+  contactPerson: "testContactPerson"
+  email: "test@qq.com"
+  checkEmail: ""
+  serviceNumber: "true"
+  userGroup: "test"
+ assert:
+  isSuccess: "false"  # 判断是否保存成功
+  expected: "必需填寫"
+  actual: "self.find_element(*(By.XPATH, \"/html/body/div[4]/div[2]/div/div[2]/form/label[5]/div[2]/div[2]/div/div\")).get_attribute(\"innerHTML\")"
+-
+ id: test_addUserData09
+ detail : 再次确认email格式不正确
+ data:
+  loginName: "unique"
+  userName: "unique"
+  contactPerson: "testContactPerson"
+  email: "test@qq.com"
+  checkEmail: "test"
+  serviceNumber: "true"
+  userGroup: "test"
+ assert:
+  isSuccess: "false"  # 判断是否保存成功
+  expected: "電郵格式不正確（範例：xxx@xxx.xxx）"
+  actual: "self.find_element(*(By.XPATH, \"/html/body/div[4]/div[2]/div/div[2]/form/label[5]/div[2]/div[2]/div/div\")).get_attribute(\"innerHTML\")"
+-
+ id: test_addUserData10
+ detail : 再次确认email与email不相同
+ data:
+  loginName: "unique"
+  userName: "unique"
+  contactPerson: "testContactPerson"
+  email: "test@qq.com"
+  checkEmail: "test@qq.com1"
+  serviceNumber: "true"
+  userGroup: "test"
+ assert:
+  isSuccess: "false"  # 判断是否保存成功
+  expected: "兩個電郵地址不相同，請重新輸入"
+  actual: "self.find_element(*(By.XPATH, \"/html/body/div[4]/div[2]/div/div[2]/form/label[5]/div[2]/div[2]/div/div\")).get_attribute(\"innerHTML\")"
+-
+ id: test_addUserData11
+ detail : 服务号码为空
+ data:
+  loginName: "unique"
+  userName: "unique"
+  contactPerson: "testContactPerson"
+  email: "test@qq.com"
+  checkEmail: "test@qq.com"
+  serviceNumber: ""
+  userGroup: "test"
+ assert:
+  isSuccess: "false"  # 判断是否保存成功
+  expected: "至少要有一個服務號碼"
+  actual: "self.find_element(*(By.XPATH, \"/html/body/div[3]/div[5]/div/div[1]/div\")).get_attribute(\"innerHTML\")"
+-
+ id: test_addUserData12
+ detail : 用户组别为空
+ data:
+  loginName: "unique"
+  userName: "unique"
+  contactPerson: "testContactPerson"
+  email: "test@qq.com"
+  checkEmail: "test@qq.com"
+  serviceNumber: "true"
+  userGroup: ""
+ assert:
+  isSuccess: "false"  # 判断是否保存成功
+  expected: "用戶組別必需填寫"
+  actual: "self.find_element(*(By.XPATH, \"/html/body/div[4]/div[2]/div/div[2]/form/label[9]/div[2]/div[2]/div/div\")).get_attribute(\"innerHTML\")"

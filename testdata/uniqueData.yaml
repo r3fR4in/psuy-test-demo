@@ -1,0 +1,6 @@
+-
+ detail: 记录设备有唯一性校验的字段
+ loginName: 'testDemoUserName13'
+ userGroupName: 'testUserGroup20'
+ editUserName: 'testDemoEditUserName1'
+ SMSContent: '测试短信内容testSMSContent563'
