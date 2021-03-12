@@ -3,11 +3,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 sys.path.append(BASE_DIR)
 
 # url
-URL = "http://172.30.22.124:8001/login"
+URL = "xxxxxx"
 # 用户名
-USERNAME = "school_admin"
+USERNAME = "xxxxx"
 # 密码
-PASSWORD = "Aa123456"
+PASSWORD = "xxxxx"
 # 测试用例目录
 TEST_DIR = os.path.join(BASE_DIR, "testcase")
 # 测试报告目录
